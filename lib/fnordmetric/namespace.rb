@@ -152,11 +152,11 @@ class FnordMetric::Namespace
     )
   end
 
-  def to_json
+  def to_json_config
     flags.merge(
       :token => token,
       :title => title
-    ).to_json
+    )
   end
 
 end

@@ -148,6 +148,7 @@ var FnordMetric = (function(){
   function init(_conf){
     conf = _conf;
     this.currentNamespace = _conf.token;
+    this.pathPrefix = _conf.path_prefix;
 
     if(conf.title){ $('title').html(conf.title); }
 
@@ -166,7 +167,7 @@ var FnordMetric = (function(){
   };
 
   function connect(){
-    socket = new WebSocket("ws://" + document.location.host + '/stream');
+    socket = new WebSocket("ws://" + document.location.host + FnordMetric.pathPrefix + '/stream');
     socket.onmessage = socketMessage;
     socket.onclose = socketClose;
     socket.onopen = socketOpen;
