@@ -29,7 +29,7 @@ module FnordMetric
       :redis_prefix => "fnordmetric",
       :inbound_stream => ["0.0.0.0", "1337"],
       :inbound_protocol => :tcp,
-      :web_interface => ["0.0.0.0", "4242"],
+      :web_interface => ["0.0.0.0", "5000"],
       :web_interface_server => "thin",
       :start_worker => true,
       :print_stats => 3,
