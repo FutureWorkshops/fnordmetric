@@ -2,7 +2,7 @@ class FnordMetric::Namespace
   
   attr_reader :handlers, :gauges, :opts, :key, :dashboards, :flags
 
-  @@opts = [:event, :gauge, :widget, :set_title, :hide_active_users, :hide_overview]
+  @@opts = [:event, :gauge, :widget, :set_title, :hide_active_users, :hide_overview, :use_secure_connection]
   @@multi_gauges = [:timeseries_gauge, :toplist_gauge, :distribution_gauge]
 
   def initialize(key, opts)
