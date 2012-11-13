@@ -159,15 +159,22 @@ var FnordMetric = (function(){
         .append($("<div id='sidebar'>"))
         .append($("<div id='viewport'>").append(canvasElem));
 
-    connect();
+    connect(_conf.secure_connection);  
 
     $('#app').html(_wrap_elem);
     $(window).resize(resizeView);    
     resizeView();
   };
 
-  function connect(){
-    socket = new WebSocket("ws://" + document.location.host + FnordMetric.pathPrefix + '/stream');
+  function connect(secureConnection){
+    
+    if(secureConnection == 'true') {
+      socket = new WebSocket("wss://" + document.location.host + FnordMetric.pathPrefix + '/stream');
+    }
+    else {
+      socket = new WebSocket("ws://" + document.location.host + FnordMetric.pathPrefix + '/stream');
+    }
+    
     socket.onmessage = socketMessage;
     socket.onclose = socketClose;
     socket.onopen = socketOpen;

@@ -108,6 +108,10 @@ class FnordMetric::Namespace
   def opt_hide_overview
     @flags[:hide_overview] = true
   end
+  
+  def opt_use_secure_connection
+    @flags[:secure_connection] = 'true'
+  end
 
   def opt_set_title(title)
     @title = title
