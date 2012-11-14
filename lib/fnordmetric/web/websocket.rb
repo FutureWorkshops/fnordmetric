@@ -5,8 +5,8 @@ require "json"
 
 class FnordMetric::WebSocket < Rack::WebSocket::Application
 
-  def initialize
-    super
+  def initialize(options={})
+    super(options)
 
     @reactor = FnordMetric::Reactor.new
     @uuid = "websocket-#{get_uuid}"
