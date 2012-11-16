@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "yajl-ruby"
   s.add_dependency "thin", "~> 1.3.0"
   s.add_dependency "activesupport"
+  s.add_dependency 'yauth'
 
   s.add_development_dependency "delorean"
   s.add_development_dependency "rspec", "~> 2.8.0"
