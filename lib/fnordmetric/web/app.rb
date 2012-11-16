@@ -21,6 +21,13 @@ class FnordMetric::App < Sinatra::Base
     include Rack::Utils    
     include FnordMetric::AppHelpers
   end
+  
+  Yauth::Strategy.install!
+
+  use Warden::Manager do |manager|
+    manager.default_strategies :yauth_users
+    manager.failure_app = Yauth::FailureApp.new("Your Realm")
+  end
 
   def initialize(opts = {})
     @opts = FnordMetric.default_options(opts)
@@ -36,6 +43,7 @@ class FnordMetric::App < Sinatra::Base
   end
 
   get '/:namespace' do
+    request.env['warden'].authenticate! 
     pass unless current_namespace
     haml :app
   end
