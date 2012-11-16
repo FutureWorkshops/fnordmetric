@@ -13,7 +13,7 @@ class FnordMetric::App < Sinatra::Base
     set :raise_errors, true
   end
 
-  enable :session
+  enable :sessions
   set :haml, :format => :html5
   set :views, ::File.expand_path('../../../../web/haml', __FILE__)
   set :public_folder, ::File.expand_path('../../../../web', __FILE__)
